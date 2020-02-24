@@ -67,4 +67,8 @@ workflows:
   build_and_rubocop:
     jobs:
       - build
-      - rubocop
+      - rubocop:
+          filters:
+            branches:
+              ignore:
+                - master
