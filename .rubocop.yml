@@ -1,0 +1,27 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'db/fixtures/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+  DisplayCopNames: true
+Style/Documentation:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/**/*'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+# Commonly used screens these days easily fit more than 80 characters.
+Layout/LineLength:
+  Max: 120
