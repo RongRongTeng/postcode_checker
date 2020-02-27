@@ -1,0 +1,9 @@
+en:
+  postcodes:
+    lookup: 
+      title: Lookup Your Postcodes
+      postcodes_hint: Use commas for multiple input
+      submit: Submit
+    form:
+      errors:
+        wrong_size: less than %{count}
