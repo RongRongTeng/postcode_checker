@@ -14,7 +14,9 @@
       <%= render partial: 'layouts/header' %>
       <%= render partial: 'layouts/sidebar' %>
       <div class='content-wrapper'>
-        <%= yield %>
+        <section class='content container-fluid'>
+          <%= yield %>
+        </section>
       </div>
     </div>
   </body>

@@ -1,0 +1,41 @@
+<section class='content-header container-fluid'>
+  <div class='row mb-2'>
+    <div class='col-sm-6'>
+      <h1 class='m-0 text-dark'><%= t('.title') %></h1>
+    </div>
+  </div>
+</section>
+
+<section class='content-body'>
+  <div class='card card-outline card-info'>
+    <div class='card-body'>
+      <%= simple_form_for @form, method: :get do |f| %>
+        <%= f.input :postcodes, hint: t('.postcodes_hint'), required: true %>
+        <%= f.button :submit, t('.submit'), class: 'btn btn-default float-right' %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @results %>
+    <div class='card'>
+      <div class='card-body'>
+        <table class='table table-hover'>
+          <thead>
+            <tr>
+              <td><%= t('.Postcode') %></td>
+              <td><%= t('.In Service Area?') %></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @results.each do |postcode, is_available| %>
+              <tr>
+                <td><%= postcode %></td>
+                <td><%= true_false_label is_available %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</section>
