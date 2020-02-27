@@ -1,24 +1,48 @@
-# README
+# Postcode Checker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Postcode Checker is a web-based tool in Ruby on Rails for checking whether your UK postcode is in the service area.
 
-Things you may want to cover:
+- Use the Postcodes.io API as source for data
+- Support whitelist management
 
-* Ruby version
+## Requirement
 
-* System dependencies
+- ruby 2.6.3
+- mysql
+- redis
 
-* Configuration
 
-* Database creation
+### Update configuration files
 
-* Database initialization
+```
+setup .env file (or .env.development), refer to the example file at .env.example
+```
 
-* How to run the test suite
+### Install Gem and Setup Database
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
 
-* Deployment instructions
+### Run the server
 
-* ...
+Just run the rails command to start the server
+
+```
+bundle exec rails s
+```
+
+Then visit http://localhost:3000
+
+
+### Testing
+
+```
+bundle exec rspec
+```
+
+## Better in Next
+- Add a web-based management tool for admin users to manage whilelists.

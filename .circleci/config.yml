@@ -16,6 +16,21 @@ commands:
           key: postcode_checker-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+
+      - restore_cache:
+          keys:
+            - postcode_checker-{{ checksum "yarn.lock" }}
+            - postcode_checker-
+
+      - run:
+          name: yarn install
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      - save_cache:
+          key: postcode_checker-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
   default_steps:
     steps:
       - checkout
@@ -44,10 +59,9 @@ jobs:
       - run:
           name: run tests
           command: bundle exec rspec
-      - store_test_results:
-          path: /tmp/test-results
       - store_artifacts:
-          path: coverage
+          path: ~/repo/tmp/capybara
+          destination: capybara_screenshots
 
   rubocop:
     docker:
